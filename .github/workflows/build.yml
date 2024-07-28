@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: sneh1919/simple-python-docker:latest
+          tags: sneh1919/gke-flask-sample:latest
