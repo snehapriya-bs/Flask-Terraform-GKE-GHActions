@@ -5,16 +5,18 @@ FROM python:3.10
 WORKDIR /app
 
 # Copy the requirements file to the working directory
-COPY requirements.txt .
+ADD requirements.txt /app/requirements.txt
 
 # Install the Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r /app/requirements.txt
 
 # Copy the rest of the application code to the working directory
-COPY . .
+ADD . /app
 
 # Expose the port on which the Flask app will run
-EXPOSE 5000
+ENV PORT 8080
 
 # Specify the command to run the application
-CMD [ "python", "app.py" ]
+CMD ["gunicorn", "app:app", "--config=config.py"]
+
+
