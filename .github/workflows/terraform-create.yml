@@ -21,7 +21,9 @@ jobs:
 
       - uses: google-github-actions/auth@v2
         with:
-          credentials_json: '${{ secrets.GKE_SA}}'
+         project_id: ${{ secrets.GKE_PROJECT }}
+         workload_identity_provider: projects/311349419137/locations/global/workloadIdentityPools/github
+
       
       # Setup gcloud CLI
       - uses: google-github-actions/setup-gcloud@v2
