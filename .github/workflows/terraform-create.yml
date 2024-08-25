@@ -25,7 +25,7 @@ jobs:
       - uses: google-github-actions/auth@v2
         with:
          project_id: ${{ secrets.GKE_PROJECT }}
-         workload_identity_provider: projects/311349419137/locations/global/workloadIdentityPools/github/providers/github
+         workload_identity_provider: projects/311349419137/locations/global/workloadIdentityPools/github/providers/gke-project
 
 
       
