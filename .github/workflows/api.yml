@@ -53,7 +53,7 @@ jobs:
       # Setup gcloud CLI
       - uses: google-github-actions/setup-gcloud@v2
         with:
-          service_account_key: my-service-account@data-audio-433402-f3.iam.gserviceaccount.com
+          service_account_key: my-service-account@311349419137.iam.gserviceaccount.com
           project_id: ${{ secrets.GKE_PROJECT }}
 
       # Get the GKE credentials so we can deploy to the cluster
