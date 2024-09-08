@@ -21,8 +21,8 @@ jobs:
       - name: Docker Login
         uses: docker/login-action@v1.10.0
         with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PWD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push Docker images
         uses: docker/build-push-action@v2.6.1
         with:
@@ -30,8 +30,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKER_USER }}/sre:latest
-            ${{ secrets.DOCKER_USER }}/sre:${{ github.run_number }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/sre:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/sre:${{ github.run_number }}
 
   Deploy-api:
     runs-on: ubuntu-latest
@@ -67,7 +67,7 @@ jobs:
           input:  k8s/api/api-deployment.yml
           output: k8s/api/deployment.yml
         env:
-          IMAGE_TAG: ${{ secrets.DOCKER_USER }}/sre:${{ github.run_number }}
+          IMAGE_TAG: ${{ secrets.DOCKERHUB_USERNAME }}/sre:${{ github.run_number }}
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
 
       - name: Deploy
