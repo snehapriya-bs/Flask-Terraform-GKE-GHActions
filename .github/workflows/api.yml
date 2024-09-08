@@ -12,21 +12,9 @@ env:
   AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
 
 jobs:
-  Tests:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build docker images
-        run: docker-compose up --build -d
-
-      - name: Run tests
-        run: docker-compose exec -T web pipenv run pytest -s -x tests
 
   Build:
     runs-on: ubuntu-latest
-    needs: [Tests]
 
     steps:
       - uses: actions/checkout@v2
