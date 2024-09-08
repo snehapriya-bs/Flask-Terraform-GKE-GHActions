@@ -45,7 +45,7 @@ jobs:
          workload_identity_provider: projects/311349419137/locations/global/workloadIdentityPools/githubs/providers/my-repo # "projects/123456789/locations/global/workloadIdentityPools/github/providers/my-repo"
       
       # Setup gcloud CLI
-      - uses: google-github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud
         with:
           service_account_key: my-service-account@data-audio-433402-f3.iam.gserviceaccount.com
           project_id: ${{ secrets.GKE_PROJECT }}
