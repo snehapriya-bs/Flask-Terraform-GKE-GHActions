@@ -57,6 +57,8 @@ jobs:
 
       # Get the GKE credentials so we can deploy to the cluster
       - run: |-
+          gcloud auth login
+          gcloud config set account data-audio-433402-f3
           gcloud container clusters get-credentials "$GKE_CLUSTER_NAME" --zone "$GKE_ZONE"
 
       - name: API service account
